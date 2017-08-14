@@ -1,6 +1,6 @@
 $("button").on('click', function(){
 	var music = $(this).attr("data-search");
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + music + "&api_key=dc6zaTOxFJmzC&limit=10";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + music + "&api_key=";
 	$.ajax({
 		url:queryURL,
 		method:'GET'})
@@ -23,7 +23,7 @@ $("button").on('click', function(){
 });
 
 	
-	 $("#musicview").on("click", function(){
+	 $('<img>').on("click", function(){
             
             var state = $(this).attr("data-state"); 
 
@@ -45,30 +45,33 @@ $("button").on('click', function(){
 })
       
 
-        function renderButtons() {
+function renderButtons(bandList) { 
 	$("#buttonsView").empty();
-for (var i = 0; i < response.data.length; i++){
-var a = $('<button>');
-a.addClass("music");
-a.attr("data-search", music[i]);
-a.text(music[i]);
-$("#buttonsView").append(a);
+	for (var i = 0; i < bandList.length; i++){
+		var a = $('<button>');
+		a.addClass("music");
+		a.attr("data-search", bandList[i]);
+		a.text(bandList[i]);
+		$("#buttonsView").append(a);
+		$("#musicview").prepend
 
+	}
 }
+var musicArray =[];
 	
-$("#addmusic").on("click", function(event){
+$("#music-form").on("submit", function(event){
 event.preventDefault();
+//console.log("music-form");
+var bandBtn = $("#music-input").val().trim();
+musicArray.push(bandBtn);
 
-var music = $("#musicinput").val().trim();
-music.push(music);
 
-renderButtons();
 
-         
-     	})
-     }
-	
-		
+renderButtons(musicArray);
+
+return false;
+
+})
 
 
 

@@ -1,1 +1,3 @@
-# giftastic
+Giftastic consists of a giph library using  AJAX calls through JQuery Javascript to request giphs from the giphy site. I utilized AJAX call to retrieve 5 giphs from the giphy site if the user clicks on the button. 
+
+I used music as the theme for my project because I enjoy music and I know music is relatable. I used very simple HTMl because I mainly wanted to focus on getting my AJAX giphy requests to function. 
